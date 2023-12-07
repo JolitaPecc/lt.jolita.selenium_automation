@@ -11,6 +11,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.time.Duration;
+
 public class SeleniumDemo {
 
     WebDriver driver;
@@ -35,6 +37,9 @@ public class SeleniumDemo {
         option.addArguments();
 
         driver = new ChromeDriver(option);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10)); // cia kad sulauktu
+        // kol susisuks narsykle, cia sleek f-jos nenaudoti, reiktu naudoti baigiamajam darbe
+
         driver.get("https://demoqa.com/text-box"); // cia atidarom narsykle
     }
 

@@ -45,16 +45,16 @@ public class ExerciseNumbers {
         Assert.assertEquals(actualResult, expectedResult);
     }
 
-    @Test
-    public void testIsTodayWednesday() {
-        DayOfWeek expectedResult = DayOfWeek.WEDNESDAY;
-//        String expectedResult = "THURSDAY";
-        DayOfWeek actualResult;
-
-        actualResult = LocalDateTime.now().getDayOfWeek();
-
-        Assert.assertEquals(actualResult, expectedResult);
-    }
+//    @Test
+//    public void testIsTodayWednesday() {
+//        DayOfWeek expectedResult = DayOfWeek.WEDNESDAY;
+////        String expectedResult = "THURSDAY";
+//        DayOfWeek actualResult;
+//
+//        actualResult = LocalDateTime.now().getDayOfWeek();
+//
+//        Assert.assertEquals(actualResult, expectedResult);
+//    }
 
     @Test
     public void test5Number() {
