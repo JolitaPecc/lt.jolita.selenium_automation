@@ -19,24 +19,7 @@ public class SeleniumDemo {
 
     @BeforeMethod
     public void setUp() {
-        WebDriverManager.chromedriver().
 
-                setup();
-
-//         solution for MacOs
-//        driver.get("chrome://settings/");
-//        ((JavascriptExecutor) driver).executeScript("chrome.settingsPrivate.setDefaultZoom(0.7)");
-
-        ChromeOptions option = new ChromeOptions();
-//        option.addArguments("--remote-allow-origins=*");
-//        option.addArguments("--headless=new");
-//        option.addArguments("--window-position=4000,0"); --> skirta atidaryti langa nuo 4000 pixelio
-//        options.addArguments("window-size=5000,3000");
-        option.addArguments("start-maximized"); // cia isdidina full screen
-        option.addArguments("--force-device-scale-factor=0.70");
-        option.addArguments();
-
-        driver = new ChromeDriver(option);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10)); // cia kad sulauktu
         // kol susisuks narsykle, cia sleek f-jos nenaudoti, reiktu naudoti baigiamajam darbe
 
