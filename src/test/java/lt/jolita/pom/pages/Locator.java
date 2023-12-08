@@ -27,5 +27,18 @@ public class Locator {
             // kita ideja kaip ieskoti //form[@id='get-input']/button
 
         }
+
+        public static class BaseCheckbox {
+            public static By checkboxAge = By.xpath("//input[@id='isAgeSelected']");
+            public static By divTxtAge = By.xpath("//div[@id='txtAge']");
+            public static By checkboxDefaultSelected =
+                    By.xpath("//input[@type='checkbox' and @checked and not(@disabled)]");
+            public static By checkboxThird =
+                    By.xpath("//input[@type='checkbox' and @checked and (@disabled)]");
+            public static By buttonCheck =  By.xpath("//input[@id='check1']");
+            public static By checkboxGroup =  By.xpath("//input[@type='checkbox' and @class='cb1-element']");
+
+            // galima ieskand sujungti parametrus su "AND" ir "OR" zodeliais //input[@type='checkbox' and @checked]
+        }
     }
 }

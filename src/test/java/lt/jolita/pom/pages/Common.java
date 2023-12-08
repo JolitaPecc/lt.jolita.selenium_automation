@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Common {
@@ -48,5 +49,23 @@ public class Common {
 
     public static void clickOnElement(By locator) {
         getElement(locator).click(); // padarom, kad programa paspaustu mygtuka
+    }
+
+    public static boolean checkIfElementSelected(By locator) {
+        return getElement(locator).isSelected();
+    }
+
+    public static boolean checkIfElementDisabled(By locator) {
+        return getElement(locator).isEnabled();
+    }
+
+    public static List<Boolean> checkIfElementsAreSelected(By locator) {
+        List<Boolean> statuses = new ArrayList<>();
+
+        for (WebElement element : getElements(locator)) {
+            statuses.add(element.isSelected());
+        }
+
+        return statuses;
     }
 }
