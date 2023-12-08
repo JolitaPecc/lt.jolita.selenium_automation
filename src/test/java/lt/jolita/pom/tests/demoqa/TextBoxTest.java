@@ -2,6 +2,7 @@ package lt.jolita.pom.tests.demoqa;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import lt.jolita.pom.pages.demoqa.TextBoxPage;
+import lt.jolita.pom.tests.TestBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,8 +14,9 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class TextBoxTest {
+public class TextBoxTest extends TestBase {
 
+    @Override
     @BeforeMethod
     public void setUp() {
         TextBoxPage.openUrl("https://demoqa.com/text-box");
@@ -65,10 +67,5 @@ public class TextBoxTest {
                 actualResult.contains(expectedResult),
                 "\nExpected: %s, \nActual: %s".formatted(actualResult, expectedResult)
         );
-    }
-
-    @AfterMethod
-    public void tearDown() {
-        TextBoxPage.quit();
     }
 }
