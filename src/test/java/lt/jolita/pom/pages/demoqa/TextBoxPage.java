@@ -20,7 +20,7 @@ public class TextBoxPage {
     }
 
     public static String readMessageFullName() {
-        return Common.getText(Locator.DemoQa.TextBox.patagraphName);
+        return Common.getText(Locator.DemoQa.TextBox.paragraphName);
     }
 
     public static void writeEmail(String email) {
