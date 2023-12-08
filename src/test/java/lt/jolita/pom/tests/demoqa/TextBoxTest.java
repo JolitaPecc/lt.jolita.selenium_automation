@@ -1,11 +1,11 @@
-package lt.jolita.demo;
+package lt.jolita.pom.tests.demoqa;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import lt.jolita.pom.pages.demoqa.TextBoxPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -13,17 +13,11 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class SeleniumDemo {
-
-    WebDriver driver;
+public class TextBoxTest {
 
     @BeforeMethod
     public void setUp() {
-
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10)); // cia kad sulauktu
-        // kol susisuks narsykle, cia sleek f-jos nenaudoti, reiktu naudoti baigiamajam darbe
-
-        driver.get("https://demoqa.com/text-box"); // cia atidarom narsykle
+        TextBoxPage.openUrl("https://demoqa.com/text-box");
     }
 
     @Test // atidarome puslapi per chrome
@@ -47,17 +41,9 @@ public class SeleniumDemo {
         String expectedResult = "Harry Potter";
         String actualResult;
 
-         // cia atidarom narsykle
-
-//        WebElement inputUserName = driver.findElement(By.id("userName"));
-        WebElement inputUserName = driver.findElement(By.xpath("//input[@id='userName']"));
-        //xpath paemem is narsykles per RMB -> Inspect, crtl+F ir surasem ranka //input[@id='userName']
-        inputUserName.sendKeys(fullName);
-
-        driver.findElement(By.xpath("//button[@id='submit']")).click();
-
-        actualResult = driver.findElement(By.xpath("//p[@id='name']")).getText();
-
+        TextBoxPage.writeFullName(fullName);
+        TextBoxPage.clickOnButtonSubmit();
+        actualResult = TextBoxPage.readMessageFullName();
 
         Assert.assertTrue(
                 actualResult.contains(expectedResult),
@@ -67,17 +53,13 @@ public class SeleniumDemo {
 
     @Test
     public void testProvidingFullEmail() {
-        String fullEmail = "harry.potter@mail.com";
+        String email = "harry.potter@mail.com";
         String expectedResult = "harry.potter@mail.com";
         String actualResult;
 
-        WebElement inputEmail = driver.findElement(By.xpath("//input[@id='userEmail']"));
-        //xpath paemem is narsykles per RMB -> Inspect, crtl+F ir surasem ranka //input[@id='userName']
-        inputEmail.sendKeys(fullEmail);
-
-        driver.findElement(By.xpath("//button[@id='submit']")).click();
-
-        actualResult = driver.findElement(By.xpath("//p[@id='email']")).getText();
+        TextBoxPage.writeEmail(email);
+        TextBoxPage.clickOnButtonSubmit();
+        actualResult = TextBoxPage.readMessageEmail();
 
         Assert.assertTrue(
                 actualResult.contains(expectedResult),
@@ -86,7 +68,7 @@ public class SeleniumDemo {
     }
 
     @AfterMethod
-    public void tearDown(){
-        driver.quit();
+    public void tearDown() {
+        TextBoxPage.quit();
     }
 }
