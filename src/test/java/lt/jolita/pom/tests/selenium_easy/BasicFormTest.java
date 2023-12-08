@@ -4,6 +4,7 @@ import lt.jolita.pom.pages.selenium_easy.BasicFormPage;
 import lt.jolita.pom.tests.TestBase;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class BasicFormTest extends TestBase {
@@ -42,11 +43,22 @@ public class BasicFormTest extends TestBase {
         Assert.assertEquals(actualResult, expectedResult);
     }
 
-    @Test
-    public void testDoubleInputField_negativeABC() {
-        String value1 = "ABC";
-        String value2 = "4";
-        String expectedResult = "NaN";
+    @DataProvider(name = "TwoInputFields")
+    public Object[][] provideDataForTwoInputFields(){
+        //cia duomenis galima nuskaityti is bet kur, cia reikia
+        // juos issitraukti is PC disko arba nuotolines repozitorijos
+        //per API. Sukuriam masyva, nuskaitytus duomenis sudedam.
+        return new Object[][]{
+                {"2", "4", "6"},
+                {"ABC", "4", "Nan"},
+                {" ", "85", " "},
+                {"-15", " ", "Nan"},
+                {"", "", "Nan"},
+        };
+    }
+
+    @Test(dataProvider = "TwoInputFields")
+    public void testDoubleInputField_negativeABC(String value1, String value2, String expectedResult) {
         String actualResult;
 
         BasicFormPage.writeEnterA(value1);

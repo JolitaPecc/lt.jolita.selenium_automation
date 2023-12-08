@@ -4,6 +4,7 @@ import lt.jolita.pom.pages.selenium_easy.BaseCheckboxPage;
 import lt.jolita.pom.tests.TestBase;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class BaseCheckboxTest extends TestBase {
@@ -51,12 +52,23 @@ public class BaseCheckboxTest extends TestBase {
         Assert.assertFalse(actualResult);
     }
 
-    @Test
-    public void testCheckboxGroupIsSelected() {
-        boolean expectedResult = true;
+    @DataProvider(name = "checkboxGroup")
+    public Object[][] provideDataForCheckboxGroup(){
+        //cia duomenis galima nuskaityti is bet kur, cia reikia
+        // juos issitraukti is PC disko arba nuotolines repozitorijos
+        //per API. Sukuriam masyva, nuskaitytus duomenis sudedam.
+        return new Object[][]{
+                {true},
+                {false}
+        };
+    }
+
+    @Test(dataProvider = "checkboxGroup")
+    public void testCheckboxGroupIsSelected(boolean expectedResult) {
         boolean actualResult;
 
         BaseCheckboxPage.clickOnButtonCheck();
+        if(!expectedResult) BaseCheckboxPage.clickOnButtonCheck();
         actualResult = BaseCheckboxPage.checkCheckboxGroupSelection(expectedResult);
 
         Assert.assertTrue(actualResult);
