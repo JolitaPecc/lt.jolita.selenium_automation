@@ -17,7 +17,7 @@ public class Driver {
 
         ChromeOptions option = new ChromeOptions();
 //        option.addArguments("--remote-allow-origins=*");
-//        option.addArguments("--headless=new");
+        option.addArguments("--headless=new"); // vykdoma kompiuterio atmintyje
 //        option.addArguments("--window-position=4000,0"); --> skirta atidaryti langa nuo 4000 pixelio
 //        options.addArguments("window-size=5000,3000");
         option.addArguments("start-maximized"); // cia isdidina full screen
