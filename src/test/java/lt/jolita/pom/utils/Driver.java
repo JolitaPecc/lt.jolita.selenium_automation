@@ -1,6 +1,7 @@
 package lt.jolita.pom.utils;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -13,8 +14,8 @@ public class Driver {
 
 //         solution for MacOs
 //        driver.get("chrome://settings/");
-//        ((JavascriptExecutor) driver).executeScript("chrome.settingsPrivate.setDefaultZoom(0.7)");
-
+//        ((JavascriptExecutor) driver.get()).executeScript("chrome.settingsPrivate.setDefaultZoom(0.7)");
+//
         ChromeOptions option = new ChromeOptions();
 //        option.addArguments("--remote-allow-origins=*");
         option.addArguments("--headless=new"); // vykdoma kompiuterio atmintyje
