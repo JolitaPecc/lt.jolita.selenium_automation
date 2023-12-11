@@ -46,6 +46,9 @@ public class Locator {
             public static By buttonCheck = By.xpath("//button[@id='buttoncheck']");
             public static By paragraphRadiobutton =
                     By.xpath("//button[@id='buttoncheck']/../..//p[@class='radiobutton']");
+            public static By buttonGetValues =
+                    By.xpath("//button[@class='btn btn-default' and@onclick='getValues();']");
+            public static By paragraphMessage = By.xpath("//p[@class='groupradiobutton']");
 
             public static By setRadiobuttonGender(String value) {
                 //male paieska: //input[@value='Male' and @name='optradio']
@@ -54,6 +57,14 @@ public class Locator {
                 // return By.xpath("//input[@value='".concat(value).concat("' and @name='optradio']"));
                 // cia prideti pliusai, kad per value reiksme paimtume male/female arba su concat
 
+            }
+
+            public static By setSecondRadiobuttonGender(String value01) {
+                return By.xpath("//input[@value='Male' and@name='gender']");
+            }
+
+            public static By setAgeGroup(String value02) {
+                return By.xpath("//input[@value='0 - 5' and@name='ageGroup']");
             }
         }
     }

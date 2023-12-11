@@ -1,5 +1,6 @@
 package lt.jolita.pom.tests.selenium_easy;
 
+import lt.jolita.pom.pages.Locator;
 import lt.jolita.pom.pages.selenium_easy.BasicFormPage;
 import lt.jolita.pom.pages.selenium_easy.BasicRadiobuttonPage;
 import lt.jolita.pom.tests.TestBase;
@@ -16,7 +17,7 @@ public class BasicRadiobuttonTest extends TestBase {
     }
 
     @DataProvider(name = "Radiobutton")
-    public Object[][] provideDataForRadiobutton(){
+    public Object[][] provideDataForRadiobutton() {
         //cia duomenis galima nuskaityti is bet kur, cia reikia
         // juos issitraukti is PC disko arba nuotolines repozitorijos
         //per API. Sukuriam masyva, nuskaitytus duomenis sudedam.
@@ -26,7 +27,7 @@ public class BasicRadiobuttonTest extends TestBase {
         };
     }
 
-    @Test (dataProvider = "Radiobutton")
+    @Test(dataProvider = "Radiobutton")
     public void testRadioButtonGender(String value, String expectedResult) {
         String actualResult;
 
@@ -44,4 +45,29 @@ public class BasicRadiobuttonTest extends TestBase {
                 "\nExpected: %s, \nActual: %s".formatted(actualResult, expectedResult)
         );
     }
+
+    @Test
+    public void testRadioButtonGenderAdnAgeSelections() {
+        String value01 = "Male";
+        String value02 = "0 to 5";
+        String expectedGender = "Male";
+        String expectedAge = "0 - 5";
+        String actualResult;
+
+        BasicRadiobuttonPage.clickOnSecondGenderRadiobutton(value01);
+        BasicRadiobuttonPage.clickOnAgeGroup(value02);
+        BasicRadiobuttonPage.clickGetValuesButton();
+
+
+        actualResult = BasicRadiobuttonPage.readMessageGender();
+
+
+        Assert.assertTrue(
+                actualResult.contains(expectedGender) && actualResult.contains(expectedAge),
+                "\nActual: %s, \nExpected gender: %s, \nExpected age: %s".formatted(
+                        actualResult, expectedGender, expectedAge)
+        );
+
+    }
+
 }
