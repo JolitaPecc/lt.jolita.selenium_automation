@@ -46,7 +46,7 @@ public class BasicRadiobuttonTest extends TestBase {
         );
     }
 
-    @DataProvider(name = "radioButtonGroup")
+    @DataProvider(name = "radioButtonGroup", parallel = true)
     public Object[][] radioButtonGroupFunction() {
         return new Object[][]{
                 {"Male", "0 - 5", "Male", "0 - 5"},
@@ -58,7 +58,7 @@ public class BasicRadiobuttonTest extends TestBase {
         };
     }
 
-    @Test(dataProvider = "radioButtonGroup")
+    @Test(dataProvider = "radioButtonGroup", threadPoolSize = 2)
     public void testRadioButtonGenderAdnAgeSelections(String value01, String value02, String expectedGender, String expectedAge) {
         String actualResult;
 

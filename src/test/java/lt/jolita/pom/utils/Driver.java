@@ -6,7 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 public class Driver {
-    private static WebDriver driver;
+    private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
     public static void setUpChromeDriver(){
         WebDriverManager.chromedriver().setup();
@@ -24,19 +24,23 @@ public class Driver {
         option.addArguments("--force-device-scale-factor=0.70");
         option.addArguments();
 
-        driver = new ChromeDriver(option);
+        driver.set(new ChromeDriver(option));
     }
 
     public static WebDriver getDriver() {
-        return driver;
+
+        return driver.get();
     }
 
     public static void closeDriver(){
-        driver.close(); // uzdarys atidaryta taba
+
+        driver.get().close(); // uzdarys atidaryta taba
     }
 
     public static void quitDriver(){
-        driver.quit(); // uzdarys viska, ka atidare, visus langus
+//        driver.quit(); // uzdarys viska, ka atidare, visus langus
+        driver.get().quit();
+        driver.remove();
     }
 
 }

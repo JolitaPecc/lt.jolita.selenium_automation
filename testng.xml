@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Demo automation test">
+<suite name="Demo automation test" parallel="classes" thread-count="2">
     <test name="All tests">
         <classes>
             <class name="lt.jolita.pom.tests.selenium_easy.BasicFormTest"/>
