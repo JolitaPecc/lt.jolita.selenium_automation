@@ -35,10 +35,26 @@ public class Locator {
                     By.xpath("//input[@type='checkbox' and @checked and not(@disabled)]");
             public static By checkboxThird =
                     By.xpath("//input[@type='checkbox' and @checked and (@disabled)]");
-            public static By buttonCheck =  By.xpath("//input[@id='check1']");
-            public static By checkboxGroup =  By.xpath("//input[@type='checkbox' and @class='cb1-element']");
+            public static By buttonCheck = By.xpath("//input[@id='check1']");
+            public static By checkboxGroup = By.xpath("//input[@type='checkbox' and @class='cb1-element']");
 
             // galima ieskand sujungti parametrus su "AND" ir "OR" zodeliais //input[@type='checkbox' and @checked]
+        }
+
+        public static class BasicRadiobutton {
+
+            public static By buttonCheck = By.xpath("//button[@id='buttoncheck']");
+            public static By paragraphRadiobutton =
+                    By.xpath("//button[@id='buttoncheck']/../..//p[@class='radiobutton']");
+
+            public static By setRadiobuttonGender(String value) {
+                //male paieska: //input[@value='Male' and @name='optradio']
+                //female paieska: //input[@value='Female' and @name='optradio']
+                return By.xpath("//input[@value='" + value +"' and @name='optradio']");
+                // return By.xpath("//input[@value='".concat(value).concat("' and @name='optradio']"));
+                // cia prideti pliusai, kad per value reiksme paimtume male/female arba su concat
+
+            }
         }
     }
 }
