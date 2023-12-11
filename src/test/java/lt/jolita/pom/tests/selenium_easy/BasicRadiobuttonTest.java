@@ -46,12 +46,20 @@ public class BasicRadiobuttonTest extends TestBase {
         );
     }
 
-    @Test
-    public void testRadioButtonGenderAdnAgeSelections() {
-        String value01 = "Male";
-        String value02 = "0 to 5";
-        String expectedGender = "Male";
-        String expectedAge = "0 - 5";
+    @DataProvider(name = "radioButtonGroup")
+    public Object[][] radioButtonGroupFunction() {
+        return new Object[][]{
+                {"Male", "0 - 5", "Male", "0 - 5"},
+                {"Male", "5 - 15", "Male", "5 - 15"},
+                {"Male", "15 - 50", "Male", "15 - 50"},
+                {"Female", "0 - 5", "Female", "0 - 5"},
+                {"Female", "5 - 15", "Female", "5 - 15"},
+                {"Female", "15 - 50", "Female", "15 - 50"},
+        };
+    }
+
+    @Test(dataProvider = "radioButtonGroup")
+    public void testRadioButtonGenderAdnAgeSelections(String value01, String value02, String expectedGender, String expectedAge) {
         String actualResult;
 
         BasicRadiobuttonPage.clickOnSecondGenderRadiobutton(value01);

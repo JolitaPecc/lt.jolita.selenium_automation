@@ -22,11 +22,11 @@ public class BasicRadiobuttonPage {
     }
 
     public static void clickOnSecondGenderRadiobutton(String value01) {
-        Common.getText(Locator.SeleniumEasy.BasicRadiobutton.setSecondRadiobuttonGender(value01));
+        Common.clickOnElement(Locator.SeleniumEasy.BasicRadiobutton.setSecondRadiobuttonGender(value01));
     }
 
     public static void clickOnAgeGroup(String value02) {
-        Common.getText(Locator.SeleniumEasy.BasicRadiobutton.setAgeGroup(value02));
+        Common.clickOnElement(Locator.SeleniumEasy.BasicRadiobutton.setAgeGroup(value02));
     }
 
     public static void clickGetValuesButton() {

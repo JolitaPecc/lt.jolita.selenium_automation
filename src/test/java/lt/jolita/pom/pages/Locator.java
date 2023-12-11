@@ -60,11 +60,11 @@ public class Locator {
             }
 
             public static By setSecondRadiobuttonGender(String value01) {
-                return By.xpath("//input[@value='Male' and@name='gender']");
+                return By.xpath("//input[@value='" + value01 + "' and@name='gender']");
             }
 
             public static By setAgeGroup(String value02) {
-                return By.xpath("//input[@value='0 - 5' and@name='ageGroup']");
+                return By.xpath("//input[@value='" + value02 + "' and@name='ageGroup']");
             }
         }
     }
