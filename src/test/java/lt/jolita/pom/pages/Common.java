@@ -4,6 +4,7 @@ import lt.jolita.pom.utils.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -113,8 +114,8 @@ public class Common {
                 e.printStackTrace();
                 return false;
             }
-            duration ++;
-        } while (!isVisible || duration/2 >= seconds);
+            duration++;
+        } while (!isVisible || duration / 2 >= seconds);
 
         return isVisible;
     }
@@ -122,5 +123,20 @@ public class Common {
     public static void waitForElementToBeVisible(By locator) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+    }
+
+    public static void doubleCLickOnElementByActions(By locator) {
+        Actions actions = new Actions(Driver.getDriver());
+        actions
+                .moveToElement(getElement(locator))
+                .doubleClick()
+                .perform(); // perform yra "isakymas" vykdyti
+    }
+
+    public static void rightClickOnElementByActions(By locator) {
+        Actions actions = new Actions(Driver.getDriver());
+        actions
+                .contextClick(getElement(locator)) // taip vadinasi desinys pelytes paspaudimas
+                .perform();
     }
 }

@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 
 public class Locator {
     public static class DemoQa {
+        public static By buttonDoubleCLick = By.xpath("//button[@id='doubleClickBtn']");
+
         public static class TextBox {
             public static By inputUserName = By.xpath("//input[@id='userName']");
             public static By buttonSubmit = By.xpath("//button[@id='submit']");
@@ -16,6 +18,13 @@ public class Locator {
             public static By buttonEnableAfter = By.xpath("//button[@id='enableAfter']");
             public static By buttonColorChange = By.xpath("//button[@id='colorChange']");
             public static By buttonVisibleAfter = By.xpath("//button[@id='visibleAfter']");
+        }
+
+        public static class Buttons {
+            public static By readDoubleClickMessage = By.xpath("//p[@id='doubleClickMessage']");
+            public static By buttonDoubleCLick = By.xpath("//button[@id='doubleClickBtn']");
+            public static By buttonRightClick = By.xpath("//button[@id='rightClickBtn']");
+            public static By rightClickMessage = By.xpath("//p[@id='rightClickMessage']");
         }
     }
 
