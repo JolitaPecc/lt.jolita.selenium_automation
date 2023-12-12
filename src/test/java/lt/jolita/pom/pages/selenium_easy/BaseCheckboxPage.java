@@ -28,7 +28,7 @@ public class BaseCheckboxPage {
     }
 
     public static boolean checkThirdCheckboxlsIsEnabled() {
-        return Common.checkIfElementDisabled(Locator.SeleniumEasy.BaseCheckbox.checkboxThird);
+        return Common.checkIfElementEnabled(Locator.SeleniumEasy.BaseCheckbox.checkboxThird);
     }
 
     public static void clickOnButtonCheck() {

@@ -11,6 +11,12 @@ public class Locator {
             public static By inputEmail = By.xpath("//input[@id='userEmail']");
             public static By paragraphEmail = By.xpath("//p[@id='email']");
         }
+
+        public class DynamicProperties {
+            public static By buttonEnableAfter = By.xpath("//button[@id='enableAfter']");
+            public static By buttonColorChange = By.xpath("//button[@id='colorChange']");
+            public static By buttonVisibleAfter = By.xpath("//button[@id='visibleAfter']");
+        }
     }
 
     public static class SeleniumEasy {
