@@ -87,11 +87,6 @@ public class Common {
         wait.until(ExpectedConditions.attributeContains(locator, attributeName, valueContains));
     }
 
-//    public static void waitFotElementsToBeVisible(By locator) {
-//        WebDriverWait wait =
-//    }
-
-
     public static boolean checkIfElementVisible(By locator) {
         try {
             return getElement(locator).isDisplayed();
@@ -128,15 +123,35 @@ public class Common {
     public static void doubleCLickOnElementByActions(By locator) {
         Actions actions = new Actions(Driver.getDriver());
         actions
-                .moveToElement(getElement(locator))
-                .doubleClick()
+//                .moveToElement(getElement(locator))
+                .doubleClick(getElement(locator))
                 .perform(); // perform yra "isakymas" vykdyti
     }
+
+ //////   public static void scrollWindowByActions() {
+//        Actions actions = new Actions(Driver.getDriver());
+//        actions
+//                .scrollByAmount(0, 1000)
+//                .perform();
+//    }
 
     public static void rightClickOnElementByActions(By locator) {
         Actions actions = new Actions(Driver.getDriver());
         actions
                 .contextClick(getElement(locator)) // taip vadinasi desinys pelytes paspaudimas
                 .perform();
+    }
+
+    public static void addTextIntoAlertBox(String message) {
+        Driver.getDriver().switchTo().alert().sendKeys(message);
+    }
+
+    public static void waitForAlertIsPresent(int seconds) {
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(seconds));
+        wait.until(ExpectedConditions.alertIsPresent());
+    }
+
+    public static void clickOnAcceptOfAlertBox() {
+        Driver.getDriver().switchTo().alert().accept();
     }
 }

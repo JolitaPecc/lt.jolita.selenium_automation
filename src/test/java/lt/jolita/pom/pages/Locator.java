@@ -26,6 +26,12 @@ public class Locator {
             public static By buttonRightClick = By.xpath("//button[@id='rightClickBtn']");
             public static By rightClickMessage = By.xpath("//p[@id='rightClickMessage']");
         }
+
+        public class Alerts {
+            public static By buttonAlertDelay = By.xpath("//button[@id='timerAlertButton']");
+            public static By buttonPromptBox = By.xpath("//button[@id='promtButton']");
+            public static By spanPromptBox = By.xpath("//span[@id='promptResult']");
+        }
     }
 
     public static class SeleniumEasy {
