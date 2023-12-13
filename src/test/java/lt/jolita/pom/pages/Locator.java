@@ -32,6 +32,13 @@ public class Locator {
             public static By buttonPromptBox = By.xpath("//button[@id='promtButton']");
             public static By spanPromptBox = By.xpath("//span[@id='promptResult']");
         }
+
+        public static class Frames {
+            public static By frame1 = By.xpath("//iframe[@id='frame1']");
+            public static By headerSample = By.xpath("//h1[@id='sampleHeading']");
+            public static By frame2 = By.xpath("//iframe[@id='frame2']");
+            public static By divDescription = By.xpath("//div[@id='framesWrapper']/div[1]");
+        }
     }
 
     public static class SeleniumEasy {
@@ -74,7 +81,7 @@ public class Locator {
             public static By setRadiobuttonGender(String value) {
                 //male paieska: //input[@value='Male' and @name='optradio']
                 //female paieska: //input[@value='Female' and @name='optradio']
-                return By.xpath("//input[@value='" + value +"' and @name='optradio']");
+                return By.xpath("//input[@value='" + value + "' and @name='optradio']");
                 // return By.xpath("//input[@value='".concat(value).concat("' and @name='optradio']"));
                 // cia prideti pliusai, kad per value reiksme paimtume male/female arba su concat
 

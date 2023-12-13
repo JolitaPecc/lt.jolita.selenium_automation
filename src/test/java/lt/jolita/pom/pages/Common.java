@@ -128,7 +128,7 @@ public class Common {
                 .perform(); // perform yra "isakymas" vykdyti
     }
 
- //////   public static void scrollWindowByActions() {
+    //////   public static void scrollWindowByActions() {
 //        Actions actions = new Actions(Driver.getDriver());
 //        actions
 //                .scrollByAmount(0, 1000)
@@ -153,5 +153,17 @@ public class Common {
 
     public static void clickOnAcceptOfAlertBox() {
         Driver.getDriver().switchTo().alert().accept();
+    }
+
+    public static void switchToFrame(By locator) {
+        Driver.getDriver().switchTo().frame(getElement(locator));
+    }
+
+    public static List<WebElement> getListOfElements(By locator) {
+        return getElements(locator);
+    }
+
+    public static void swichToDefaultContent() {
+        Driver.getDriver().switchTo().defaultContent();
     }
 }
